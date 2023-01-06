@@ -1,5 +1,9 @@
 package com.kangaroohy.tencent.ddns.service;
 
+import com.kangaroohy.tencent.ddns.entity.DomainListVO;
+
+import java.util.List;
+
 /**
  * 类 IIpAddressService 功能描述：<br/>
  *
@@ -21,4 +25,11 @@ public interface IIpAddressService {
      * 刷新IP解析
      */
     void autoRefresh();
+
+    /**
+     * 解析列表
+     *
+     * @return
+     */
+    List<DomainListVO> findDomainList();
 }

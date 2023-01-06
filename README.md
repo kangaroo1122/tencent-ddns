@@ -52,9 +52,9 @@ ddns.tencent.domain[0].record-type=A
 
 启动会自动刷新一次，此后按照指定的刷新频次刷新，默认3分钟一次
 
-强制刷新某个映射，可访问：`http://{ip}:{port}?subDomainName=testv4`
+可访问：`http://{ip}:{port}`，即可查询列表，支持手动刷新
 
-或访问：`http://{ip}:{port}/refresh?subDomainName=testv4`
+![img.png](img.png)
 
 如果有多个域名，`token-id / token` 自定义成一样的即可，暂不支持配置多个 `token-id / token`
 

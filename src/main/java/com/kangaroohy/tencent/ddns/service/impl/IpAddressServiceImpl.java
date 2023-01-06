@@ -2,6 +2,7 @@ package com.kangaroohy.tencent.ddns.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.kangaroohy.tencent.ddns.config.DdnsToken;
+import com.kangaroohy.tencent.ddns.entity.DomainListVO;
 import com.kangaroohy.tencent.ddns.entity.RecordList;
 import com.kangaroohy.tencent.ddns.entity.RecordModify;
 import com.kangaroohy.tencent.ddns.enums.RecordType;
@@ -18,6 +19,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -88,6 +90,19 @@ public class IpAddressServiceImpl implements IIpAddressService {
                 }
             }
         }
+    }
+
+    @Override
+    public List<DomainListVO> findDomainList() {
+        List<DomainListVO> domainList = new ArrayList<>();
+        List<DdnsToken.Domain> domains = ddnsToken.getDomain();
+        domains.forEach(item ->
+                domainList.add(DomainListVO.builder()
+                        .domainName(item.getDomainName())
+                        .subDomainName(item.getSubDomainName())
+                        .recordType(item.getRecordType().getType())
+                        .build()));
+        return domainList;
     }
 
     private RecordList.Record getDomainDnsRecord(DdnsToken.Domain domain) {

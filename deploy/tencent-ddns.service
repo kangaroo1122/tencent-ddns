@@ -1,0 +1,15 @@
+[Unit]
+Description=tencent-ddns
+Documentation=https://www.kangaroohy.com
+After=syslog.target
+
+[Service]
+User=root
+ExecStart=/opt/tencent-ddns/tencent-ddns.jar start
+ExecReload=/opt/tencent-ddns/tencent-ddns.jar restart
+ExecStop=/opt/tencent-ddns/tencent-ddns.jar stop
+SuccessExitStatus=143
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

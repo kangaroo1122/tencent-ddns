@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 
 /**
  * 类 IpAddressServiceImpl 功能描述：<br/>
@@ -136,7 +135,7 @@ public class IpAddressServiceImpl implements IIpAddressService {
     private String postForObject(String url, DdnsToken.Domain domain, MultiValueMap<String, Object> params) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        params.add("login_token", ddnsToken.getTokenId() + "," + ddnsToken.getToken());
+        params.add("login_token", ddnsToken.getAccessId() + "," + ddnsToken.getAccessSecret());
         params.add("format", "json");
         params.add("domain", domain.getDomainName());
         HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(params, headers);

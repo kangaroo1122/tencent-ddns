@@ -17,8 +17,8 @@ ddns:
   tencent:
     ipv4-query-domain: https://4.ipw.cn # ipv4查询地址，默认 https://4.ipw.cn
     ipv6-query-domain: https://6.ipw.cn # ipv6查询地址，默认 https://6.ipw.cn
-    token-id: token-id # token-id
-    token: token # token
+    access-id: token-id # token-id
+    access-secret: token # token
     cron: 0 0/3 * * * ? # 默认每三分钟刷新一次
     domain:
       - domain-name: tencent.asia # 顶级域名
@@ -37,9 +37,9 @@ ddns.tencent.ipv4-query-domain=https://4.ipw.cn
 # ipv6查询地址，默认 https://6.ipw.cn
 ddns.tencent.ipv6-query-domain=https://6.ipw.cn
 # token-id
-ddns.tencent.token-id=token-id
+ddns.tencent.access-id=token-id
 # token
-ddns.tencent.token=token
+ddns.tencent.access-secret=token
 # 刷新频次，默认每三分钟刷新一次
 ddns.tencent.cron=0 0/3 * * * ?
 # 顶级域名
@@ -56,9 +56,9 @@ ddns.tencent.domain[0].record-type=A
 
 ![img.png](img.png)
 
-如果有多个域名，`token-id / token` 自定义成一样的即可，暂不支持配置多个 `token-id / token`
+暂不支持配置多个 `access-id / access-secret`
 
-deploy文件夹下为打包好的jar包
+deploy文件夹下为打包好的jar包 和 服务脚本
 
 # 延伸阅读
 
